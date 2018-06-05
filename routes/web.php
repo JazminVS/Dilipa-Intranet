@@ -13,10 +13,13 @@
 Route::get('/', function () {
      return view('welcome');
  });
+ //Vistas Principales
+ Route::get('/departamentos', function () {
+     return view('departamentos/index_dep');
+ })->name('departamentos');
+
 
  Auth::routes();
-
- Route::get('/home', 'HomeController@index')->name('home');
 
  Route::get('/users', 'UserController@usuarios');
 
@@ -24,12 +27,6 @@ Route::get('/', function () {
  Route::post('/login', 'Auth/LoginController@login')->name('login');
 
  //<!------------------DEPARTAMENTOS------------------------------->
- Route::get('/departamentos', 'DepartamentosController@departamentos');
-
- //Vista Principal
- Route::get('/departamentos', function () {
-     return view('departamentos/index_dep');
- })->name('departamentos');
 
 
  //Vista Departamento Auditoria

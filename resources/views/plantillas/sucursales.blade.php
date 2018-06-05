@@ -147,6 +147,7 @@
             <!--CARRUSEL-->
             @yield('seccion1')
         </div>
+        <!-- /.col-lg-9 -->
     </div>
 
     <div class="row">

@@ -11,9 +11,14 @@ class SucursalesController extends Controller
     public function sucursales(){
 
     }
-    public function suc_quito(){
-        return view('sucursales/suc_quito');
+    //<!------------------SUCURSALES QUITO-------------------------->
+    public function suc_quito_matriz(){
+        return view('sucursales/sucursales_quito/suc_quito_matriz');
     }
+    public function suc_quito_calderon(){
+        return view('sucursales/sucursales_quito/suc_quito_calderon');
+    }
+
     public function suc_ambato(){
         return view('sucursales/suc_ambato');
     }
