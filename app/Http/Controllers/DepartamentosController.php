@@ -11,9 +11,6 @@ class DepartamentosController extends Controller
         return view('plantillas/departamentos');
     }
     //Index Departamento
-    public function dep(){
-        return view('departamentos/index_dep');
-    }
     public function dep_auditoria(){
         return view('departamentos/dep_auditoria');
     }
