@@ -14,8 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-      <link rel="shortcut icon" type="image/x-icon" href="/img/usuario.png" />
+      <link rel="shortcut icon" type="image/x-icon" href="img/dili_logo1.png" />
     <title>@yield ('titulo_sucursal')</title>
 
     <!-- Bootstrap core CSS >-->
@@ -35,7 +34,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
         <img src="img/dili_logo.png" alt="Regresar Inicio" style="width:60px;">
         </a>
 
@@ -67,45 +66,8 @@
     <!-- Fin Navigation -->
     <!-- Modal Inicio de Sesión -->
     <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-          <div class="modal-body">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <!--Inicio de Sesion con css-->
-            <div id="Contenedor">
-             <div class="Icon"><i class="fa fa-user-circle"></i></div>
-             <?php
-             //Datos para ingresar
-
-             ?>
-<div class="ContentForm">
-    <form action="" method="post" name="FormEntrar">
-        <div class="input-group input-group-lg">
-            <div class="input-group-text" style="color:#00447C"><i class="fa fa-envelope-o fa-lg"></i></div>
-            <input type="email" class="form-control" name="correo" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" required>
-        </div>
-        <br/>
-        <div class="input-group input-group-lg">
-            <div class="input-group-text" style="color:#00447C"><i class="fa fa-lock fa-2x"></i></div>
-            <input type="password" name="contra" class="form-control" placeholder="*********" aria-describedby="sizing-addon1" required>
-        </div>
-
-        <br/>
-        <div align="center">
-            <button class="btn btn-lg btn-primary" type="submit">Entrar</button>
-        </div>
-    </form>
-</div>
-
-</div>
-
-</div>
-</div>
-</div>
-</div>
+      @yield("login")
+    </div>
 <!-- Fin Modal Inicio de Sesion-->
 
 <!-- Page Content -->
@@ -143,7 +105,7 @@
         </div>
         <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9 my-4">
+        <div class="col-lg-9 ">
             <!--CARRUSEL-->
             @yield('seccion1')
         </div>
@@ -159,12 +121,10 @@
 
 </div>
 <!-- /.container -->
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Dilipa Corporativo 2018</p>
-        </div>
-    </footer>
+    <!-- Copyright -->
+    <div class="footer-copyright py-3 bg-dark text-white text-center">Copyright &copy; Dilipa Corporativo 2018
+    </div>
+    <!-- Copyright -->
 
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>

@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="shortcut icon" type="image/x-icon" href="/img/dili_logo1.png"/>
         <title>Dilipa Corporativo</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -12,7 +13,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #dedddd;
+                background-image: url("img/fondo_inicio2.png");
+                background-size: cover;
                 color: #00447c;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -51,8 +53,8 @@
             .links > a {
                 color: #EE7401;
                 padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
+                font-size: 13px;
+                font-weight: 900;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -79,7 +81,7 @@
             <div class="content">
 
                 <div class="title m-b-md">
-                   DILIPA CORPORATIVO
+                    <img src="img/dilipa.png" width="50%">
                 </div>
 
                 <div class="links">
