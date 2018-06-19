@@ -1,11 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Sistemas
- * Date: 30/05/2018
- * Time: 9:03
- */?>
-@extends('plantillas.departamentos')
+@extends('layouts.departamentos')
+@extends('layouts.login')
 <!--VISTA INICIO DEPARTAMENTO SISTEMAS-->
 @section('titulo_departamento')
     Departamento Sistemas

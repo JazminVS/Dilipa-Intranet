@@ -1,12 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Sistemas
- * Date: 30/05/2018
- * Time: 9:02
- */
-?>
-@extends('plantillas.departamentos')
+@extends('layouts.departamentos')
+@extends('layouts.login')
 <!--VISTA INICIO DEPARTAMENTO CONTABILIDAD-->
 @section('titulo_departamento')
     Departamento Contabilidad

@@ -9,13 +9,24 @@
 }
 
 #Contenedor{
-	width: 400px;
+	width: 200px;
 	margin: 20px auto;
-	background-color: #F3EDED;
-    border: 1px solid #ECE8E8;
-	height: 350px;
-	border-radius:8px;
-	padding: 0px 9px 0px 9px;
+	background-color: #d7eaf9;
+    border: #0e69b0;
+	height: 150px;
+	border-radius:6px;
+	padding: 0px 10px 0px 10px;
+}
+#btnlogin{
+	background-color:#1770B3;
+	color:#FFFFFF;
+	font-size: x-large;
+}
+.btn-link {
+	color: #00447C;
+}
+.button-checkbox{
+	font-size: 1.2em;
 }
 
 /**
@@ -24,7 +35,7 @@
  * de un circulo
  */
 .Icon span{
-background: #A8A6A6;
+background: #1770b4;
 padding: 10px;
 border-radius: 150px;
 }
@@ -35,7 +46,7 @@ border-radius: 150px;
 .Icon{
 	margin-top: 5px;
 	margin-bottom:5px;
-    color: #00447C;
+    color: #1770b4;
     font-size: 75px;
     text-align: center;
 }

@@ -1,4 +1,5 @@
- <?php
+<?php
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,75 +12,94 @@
 */
 
 Route::get('/', function () {
-     return view('welcome');
- });
- //Vistas Principales
- Route::get('/departamentos', function () {
-     return view('departamentos/index_dep');
- })->name('departamentos');
+    return view('welcome');
+});
+
+//Auth::routes();
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+$this->post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
- Auth::routes();
+Route::middleware(['auth'])->group(function () {
+    Route::get('/auditoria_login', 'DepartamentosController@auditoria_login')->name('auditoria_login')
+        ->middleware('permission:departamentos_login.auditoria_acceso');
 
- Route::get('/users', 'UserController@usuarios');
+    Route::get('/compras_login', 'DepartamentosController@compras_login')->name('compras_login')
+        ->middleware('permission:departamentos_login.compras_acceso');
 
- //LOGIN
- Route::post('/login', 'Auth/LoginController@login')->name('login');
+    Route::get('/conta_login', 'DepartamentosController@conta_login')->name('conta_login')
+        ->middleware('permission:departamentos_login.conta_acceso');
 
- //<!------------------DEPARTAMENTOS------------------------------->
+    Route::get('/marketing_login', 'DepartamentosController@marketing_login')->name('marketing_login')
+        ->middleware('permission:departamentos_login.marketing_acceso');
 
+    Route::get('/rrhh_login', 'DepartamentosController@rrhh_login')->name('rrhh_login')
+        ->middleware('permission:departamentos_login.rrhh_acceso');
 
- //Vista Departamento Auditoria
- Route::get('/dep_auditoria', 'DepartamentosController@dep_auditoria');
+    Route::get('/sistemas_login', 'DepartamentosController@sistemas_login')->name('sistemas_login')
+        ->middleware('permission:departamentos_login.sistemas_acceso');
+});
 
- //Vista Departamento Compras
- Route::get('/dep_compras', 'DepartamentosController@dep_compras');
+//<!------------------RUTAS PRINICIPALES-------------------------->
+Route::get('/home', 'HomeController@index');
 
- //Vista Departamento Contabilidad
- Route::get('/dep_conta', 'DepartamentosController@dep_conta');
+Route::get('/departamentos', 'DepartamentosController@index');
+//<!------------------DEPARTAMENTOS------------------------------->
+//Vista Departamento Auditoria
+Route::get('/dep_auditoria', 'DepartamentosController@dep_auditoria');
 
- //Vista Departamento Marketing
- Route::get('/dep_marketing', 'DepartamentosController@dep_marketing');
+//Vista Departamento Compras
+Route::get('/dep_compras', 'DepartamentosController@dep_compras');
 
- //Vista Departamento Recursos Humanos
- Route::get('/dep_rrhh', 'DepartamentosController@dep_rrhh');
+//Vista Departamento Contabilidad
+Route::get('/dep_conta', 'DepartamentosController@dep_conta');
 
- //Vista Departamento Sistemas
- Route::get('/dep_sis', 'DepartamentosController@dep_sis');
+//Vista Departamento Marketing
+Route::get('/dep_marketing', 'DepartamentosController@dep_marketing');
+
+//Vista Departamento Recursos Humanos
+Route::get('/dep_rrhh', 'DepartamentosController@dep_rrhh');
+
+//Vista Departamento Sistemas
+Route::get('/dep_sis', 'DepartamentosController@dep_sis');
 
 //<!------------------SUCURSALES------------------------------->
- Route::get('/sucursales', function () {
-     return view('sucursales/index_suc');
- })->name('sucursales');
+Route::get('/sucursales', function () {
+    return view('sucursales/index');
+})->name('sucursales');
 
- //<!------------------SUCURSALES QUITO------------->
- Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
- Route::get('/suc_quito_calderon', 'SucursalesController@suc_quito_calderon')->name('suc_quito_calderon');
- Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
- Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
- Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
- Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
- Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
+//<!------------------SUCURSALES QUITO------------->
+Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
+Route::get('/suc_quito_calderon', 'SucursalesController@suc_quito_calderon')->name('suc_quito_calderon');
+Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
+Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
+Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
+Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
+Route::get('/suc_quito_matriz', 'SucursalesController@suc_quito_matriz')->name('suc_quito_matriz');
 
- //Vista Sucursal Ambato
- Route::get('/suc_ambato', 'SucursalesController@suc_ambato')->name('suc_ambato');
+//Vista Sucursal Ambato
+Route::get('/suc_ambato', 'SucursalesController@suc_ambato')->name('suc_ambato');
 
- //Vista Sucursal Ibarra
- Route::get('/suc_ibarra', 'SucursalesController@suc_ibarra')->name('suc_ibarra');
+//Vista Sucursal Ibarra
+Route::get('/suc_ibarra', 'SucursalesController@suc_ibarra')->name('suc_ibarra');
 
- //Vista Sucursal Portoviejo
- Route::get('/suc_portoviejo', 'SucursalesController@suc_portoviejo')->name('suc_portoviejo');
+//Vista Sucursal Portoviejo
+Route::get('/suc_portoviejo', 'SucursalesController@suc_portoviejo')->name('suc_portoviejo');
 
- //Vista Sucursal Santo Domingo
- Route::get('/suc_santo', 'SucursalesController@suc_santo')->name('suc_santo');
- //<!------------------SUCURSALES STO DOMINGO------------->
- Route::get('/suc_sto1', 'SucursalesController@suc_sto1')->name('suc_sto1');
- Route::get('/suc_sto2', 'SucursalesController@suc_sto1')->name('suc_sto2');
- Route::get('/suc_sto3', 'SucursalesController@suc_sto1')->name('suc_sto3');
-
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Vista Sucursal Santo Domingo
+Route::get('/suc_santo', 'SucursalesController@suc_santo')->name('suc_santo');
+//<!------------------SUCURSALES STO DOMINGO------------->
+Route::get('/suc_sto1', 'SucursalesController@suc_sto1')->name('suc_sto1');
+Route::get('/suc_sto2', 'SucursalesController@suc_sto1')->name('suc_sto2');
+Route::get('/suc_sto3', 'SucursalesController@suc_sto1')->name('suc_sto3');
