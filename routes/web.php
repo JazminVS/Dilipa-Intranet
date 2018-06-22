@@ -53,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
 
 //<!------------------RUTAS PRINICIPALES-------------------------->
 Route::get('/home', 'HomeController@index');
+Route::view('/adminuser', 'admin.usuarios');
 
 Route::get('/departamentos', 'DepartamentosController@index');
 //<!------------------DEPARTAMENTOS------------------------------->
