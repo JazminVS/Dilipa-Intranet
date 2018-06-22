@@ -53,7 +53,12 @@ Route::middleware(['auth'])->group(function () {
 
 //<!------------------RUTAS PRINICIPALES-------------------------->
 Route::get('/home', 'HomeController@index');
-Route::view('/adminuser', 'admin.usuarios');
+Route::get('/adminuser', 'UserController@index');
+
+Route::get('/adminuser/destroy/{id}', ['as' => 'usuario/destroy', 'uses'=>'UserController@destroy']);
+Route::get('/user/{id?}', 'UserController@show');
+Route::get('/user/{id?}/edit', 'UserController@edit')->name('adminedit');
+Route::get('/user/{id?}/update', 'UserController@update')->name('adminupdate');
 
 Route::get('/departamentos', 'DepartamentosController@index');
 //<!------------------DEPARTAMENTOS------------------------------->

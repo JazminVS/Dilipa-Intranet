@@ -129,8 +129,8 @@
                         <i class="glyphicon glyphicon-triangle-bottom pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="adminuser"><i class="glyphicon glyphicon-plus-sign"></i>Administradores</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-plus-sign"></i>Roles</a></li>
+                        <li><a href="adminuser"><i class="glyphicon glyphicon-plus-sign"></i>Crear Usuarios y Roles</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-plus-sign"></i>Editar Usuarios y Roles</a></li>
                     </ul>
                 </li>
 

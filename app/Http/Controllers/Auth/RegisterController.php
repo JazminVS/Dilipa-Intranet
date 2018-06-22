@@ -12,11 +12,10 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 class RegisterController extends Controller
 {
     use RegistersUsers;
-
-    protected $redirectTo = '/adminuser';
+    protected $redirectTo ='adminuser';
 
     public function redirecTo(){
-        return '/adminuser';
+        return ('adminuser');
     }
 
     public function __construct()
@@ -37,7 +36,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('admin.usuarios');
+        return view('admin.registro');
     }
 
     protected function create(array $data)
@@ -57,8 +56,10 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
-
-        return "Usuario registrado";
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
+
+
 
 }
