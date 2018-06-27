@@ -43,19 +43,19 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $usuario = User::find($request->id);
-        $usuario->username = $request->username;
-        $usuario->name = $request->name;
-        $usuario->lastname = $request->lastname;
-        $usuario->email = $request->email;
+        $usuario = User::whereId($id)->firstOrFail();
+        $usuario->username = $request-> get('username');
+        $usuario->name =$request-> get('name');
+        $usuario->lastname = $request->get('lastname');
+        $usuario->email = $request->get('email');
         $usuario->save();
-        return redirect('movie');
+        return redirect('adminuser')->with('El usuario'.$id.' ha sido actualizado');
     }
 
     public function destroy($id)
     {
-        $usuario = User::find($id);
+        $usuario = User::whereId($id)->firstOrFail();
         $usuario->delete();
-        return redirect()->back();
+        return redirect('adminuser')->with('El usuario'.$id.' ha sido actualizado');
     }
 }

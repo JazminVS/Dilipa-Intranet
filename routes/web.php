@@ -57,8 +57,9 @@ Route::get('/adminuser', 'UserController@index');
 
 Route::get('/adminuser/destroy/{id}', ['as' => 'usuario/destroy', 'uses'=>'UserController@destroy']);
 Route::get('/user/{id?}', 'UserController@show');
-Route::get('/user/{id?}/edit', 'UserController@edit')->name('adminedit');
-Route::get('/user/{id?}/update', 'UserController@update')->name('adminupdate');
+Route::get('/user/{id?}/edit', 'UserController@edit')->name('admin.edit');
+Route::post('/user/{id?}/edit', 'UserController@update')->name('admin.update');
+Route::post('/user/{id?}/delete', 'UserController@destroy')->name('admin.delete');
 
 Route::get('/departamentos', 'DepartamentosController@index');
 //<!------------------DEPARTAMENTOS------------------------------->

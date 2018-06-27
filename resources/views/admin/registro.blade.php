@@ -194,8 +194,14 @@
                                     <td>{!! $user->email !!}</td>
                                     <td>{!! $user->username !!}</td>
                                     <td>
-                                        <a class="btn btn-info btn-xs" href="{{ route('adminedit',['id' => $user->id] )}}" >Edit</a>
-                                        <a class="btn btn-danger btn-xs" href="#" >Delete</a>
+                                        <a class="btn btn-info btn-xs" href="{!!action('UserController@edit',$user->id)!!}" >Editar</a>
+                                        <form method="post" action="{!! action('UserController@destroy',$user->id) !!}">
+                                            <input type="hidden" name="_token" value="{!! csrf_token()!!}">
+                                            <div>
+                                                <button type="submit" class="btn btn-danger btn-xs">Borrar</button>
+                                            </div>
+                                        </form>
+
                                     </td>
 
                                 </tr>
