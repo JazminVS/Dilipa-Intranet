@@ -50,12 +50,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sistemas_login', 'DepartamentosController@sistemas_login')->name('sistemas_login')
         ->middleware('permission:departamentos_login.sistemas_acceso');
 });
+//<!--RUTAS EMPLEADO DEL MES--!>
+Route::get('/empleadomes', 'EmpleadoController@index')->name('empleadomes');
+Route::get('/empleadoci', 'EmpleadoController@buscar')->name('empleadoci');
+Route::post('form-post', function (RegisterUserRequest $request) {
+    dd(request()->all());
+});
 
 //<!------------------RUTAS PRINICIPALES-------------------------->
 Route::get('/home', 'HomeController@index');
 Route::get('/adminuser', 'UserController@index');
 
-Route::get('/adminuser/destroy/{id}', ['as' => 'usuario/destroy', 'uses'=>'UserController@destroy']);
 Route::get('/user/{id?}', 'UserController@show');
 Route::get('/user/{id?}/edit', 'UserController@edit')->name('admin.edit');
 Route::post('/user/{id?}/edit', 'UserController@update')->name('admin.update');
