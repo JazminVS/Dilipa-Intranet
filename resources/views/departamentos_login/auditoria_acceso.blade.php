@@ -28,10 +28,7 @@
                     <h6 class="card-subtitle mb-2 text-muted">Departamento de Marketing</h6>
                 </div>
                 <div class="card-body mb-2">
-                    <a href="empleadomes"><button type="button" class="btn btn-danger">
-                        <span class="pull-left">Editar<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </span>
-                    </button></a>
+
                     <!--
                       <img class="rounded rounded-circle img-fluid" id="imagen_empleadoM" src="img/empleados/17.jpg" alt="empleado_mes" >-->
                     <br/>
@@ -121,7 +118,7 @@
 
         </div>
     </div>
-    </div>
+
     <!-- /.Close row id=2 prinicipal-->
     <br/>
 
@@ -151,6 +148,5 @@
 
     <!-- /.row -->
 
-    </div>
 
 @endsection

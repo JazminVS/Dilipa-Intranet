@@ -23,6 +23,12 @@ class EmpleadoController extends Controller
         return view ('departamentos_login.empleado_mes',compact('empleados'));
     }
 
+    public function show ($id){
+        $empleado=Empleado::whereId($id)->firstOrFail();
+        $empleados=Empleado::all();
+        return view('departamentos_login.empleado_mes',compact('empleado','empleados'));
+    }
+
     public function findUser(Route $route){
         $this->empleado=Empleado::findOrFail($route->getParameter('empleados'));
     }
@@ -32,13 +38,6 @@ class EmpleadoController extends Controller
     {
         //
     }
-
-
-    public function show($id)
-    {
-        //
-    }
-
 
     public function edit($id)
     {

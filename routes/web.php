@@ -53,9 +53,7 @@ Route::middleware(['auth'])->group(function () {
 //<!--RUTAS EMPLEADO DEL MES--!>
 Route::get('/empleadomes', 'EmpleadoController@index')->name('empleadomes');
 Route::get('/empleadoci', 'EmpleadoController@buscar')->name('empleadoci');
-Route::post('form-post', function (RegisterUserRequest $request) {
-    dd(request()->all());
-});
+Route::get('/empleado/{id?}/find', 'EmpleadoController@show')->name('empleadoshow');
 
 //<!------------------RUTAS PRINICIPALES-------------------------->
 Route::get('/home', 'HomeController@index');

@@ -21,7 +21,6 @@
 @section('seccion1')
     <h2>ELEGIR EMPLEADO DEL MES</h2>
     <div>
-        <h2>
         {{ Form::open(['route' => 'empleadoci', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
         <div class="form-group">
             {{ Form::text('nombres', null, ['class' => 'form-control', 'placeholder' => 'Por Nombres']) }}
@@ -35,17 +34,17 @@
             </button>
         </div>
         {{ Form::close() }}
-        </h2>
-
     </div>
-    <div class="box box-danger">
-        <div class="box-header with-border">
-
+    <div>
+        <div class="form-group">
+            <!--<button type="submit" class="btn btn-warning">Aceptar
+                <span><i class="fa fa-check-circle"></i></span>
+            </button>-->
         </div>
-        <div class="box-body">
-            @if($empleados->isEmpty())
-                <p>No existen registros</p>
-            @else
+            <div class="form-group">
+                @if($empleados->isEmpty())
+                    <p>No existen registros</p>
+                @else
                 <table class="table">
                     <thead>
                     <tr>
@@ -65,16 +64,43 @@
                             <td>{!! $empleado->apellidos !!}</td>
                             <td></td>
                             <td>{!! $empleado->fecha_cumple !!}</td>
-                            <td style="text-align:center;">
-                                {{ Form::radio('select')}}
+                            <td>
+                                <a class="edit-modal btn btn-warning btn-xs" data-id="{{$empleado->id}}" data-title="{{$empleado->cedula}}">Seleccionar</a>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-            @endif
+                @endif
         </div>
         <!-- /.box-body -->
+    </div>
+
+    <div class="modal fade" id="select">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Crear</h4>
+                    {{ Form::open() }}
+                    <div class="form-group">
+                        <label>{!! $empleado->cedula !!}</label>
+                    </div>
+                    <div class="form-group">
+                        <label>{!! $empleado->nombres !!}</label>
+                    </div>
+                    {{ Form::close() }}
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-warning btn-xs" href="{!!action('EmpleadoController@show',$empleado->id)!!}"
+                       >Seleccionar</a>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection
