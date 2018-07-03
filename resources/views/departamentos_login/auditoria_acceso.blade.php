@@ -23,16 +23,17 @@
     <!--empleado del mes-->
         <div class="col-lg-4 col-sm-6 my-4" >
             <div class="card border-primary w-100 p-0" style="width: 15rem;">
-                <div class="card-header ">
-                    <h3 class="card-title">Empleado del Mes</h3>
+                <div class="card-header">
+                    <h5 class="card-title">Empleado del Mes</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Departamento de Marketing</h6>
                 </div>
                 <div class="card-body mb-2">
+
                     <!--
                       <img class="rounded rounded-circle img-fluid" id="imagen_empleadoM" src="img/empleados/17.jpg" alt="empleado_mes" >-->
                     <br/>
                 </div>
-                <p class="card-text p-2">sddnfdsfndf</p>
+                <p class="card-text p-2"></p>
                 <div class="card-footer border-primary">
                     <ul class="pagination pagination justify-content-center">
                         <li class="page-item"><a class="page-link" href="#">&laquo</a></li>
@@ -117,7 +118,7 @@
 
         </div>
     </div>
-    </div>
+
     <!-- /.Close row id=2 prinicipal-->
     <br/>
 
@@ -147,6 +148,5 @@
 
     <!-- /.row -->
 
-    </div>
 
 @endsection
